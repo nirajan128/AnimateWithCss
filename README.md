@@ -7,4 +7,4 @@
 - **feature0.3** added content - logo and message
 - **feature0.4** added button(Homepage) - linked with intro to css
 - **feature0.5** added layout for intro to css
-- **feature0.6** added functionalitirs to intoCss.html
+- **feature0.6** added functionalities to intoCss.html
