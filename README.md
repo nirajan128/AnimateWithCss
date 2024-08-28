@@ -8,3 +8,4 @@
 - **feature0.4** added button(Homepage) - linked with intro to css
 - **feature0.5** added layout for intro to css
 - **feature0.6** added functionalities to intoCss.html
+- **feature0.6** added styles to intoCss.html

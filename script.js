@@ -1,16 +1,25 @@
 import data from './data.js'
 
-const container = document.getElementById('content')
-const buttonOne = document.getElementById('buttonOne')
-const defaultText = document.getElementById('defaultText')
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.getElementById('content')
+  const buttonOne = document.getElementById('buttonOne')
+  const defaultText = document.getElementById('defaultText')
+
+  console.log(data)
+
+  // Event listener for button
+  buttonOne.addEventListener('click', () =>
+    displayModuleContent(0, container, defaultText)
+  ) // Display Module 1
+})
 
 // Function to display content based on the selected module
-function displayModuleContent (moduleIndex) {
+function displayModuleContent (moduleIndex, container, defaultText) {
   // Hide the default text
   defaultText.style.display = 'none'
 
   // Start building the content string
-  let changedContent = `<div class="container d-flex flex-column justify-content-center align-items-center">`
+  let changedContent = `<div class="container d-flex flex-column p-4 text-dark">`
 
   // Get the module data based on the moduleIndex
   const moduleData = data[moduleIndex]
@@ -47,6 +56,3 @@ function displayModuleContent (moduleIndex) {
     container.innerHTML = `<p>Module not found.</p>`
   }
 }
-
-// Event listeners for buttons
-buttonOne.addEventListener('click', () => displayModuleContent(0)) // Display Module 1

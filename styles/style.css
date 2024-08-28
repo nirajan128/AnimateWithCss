@@ -1,84 +1,160 @@
-
-
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #ecf0f1;
+  --accent-color: #e74c3c;
+  --bg-color: #ffffff;
+}
+
+.primary-color {
+  background-color: var(--primary-color) !important;
+}
+.secondary-color {
+  background-color: var(--secondary-color) !important;
+}
+.accent-color {
+  background-color: var(--accent-color) !important;
+}
+.bg-color {
+  background-color: var(--bg-color) !important;
+}
+
 .source-code-pro {
-  font-family: "Source Code Pro", monospace;
+  font-family: 'Source Code Pro', monospace;
   font-weight: 400;
   font-style: normal;
 }
 body.bg-dark {
-  background-color:linear-gradient(135deg, #ff7e5f, #feb47b) !important;
+  background-color: linear-gradient(135deg, #ff7e5f, #feb47b) !important;
 }
 
 .poppins-regular {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 .lato-regular {
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 
-
 /* Svg-background styles */
 #background-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    overflow: hidden;
-  }
-
-  #background-svg {
-    width: 100%;
-    height: 100%;
-    display: block;
-  }
-
-
-  /* Main content styles */
-  #content {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    color: white;
-    font-family: Arial, sans-serif;
-  }
-
-
-  /* Animations and keyframes */
-  .animated-shape1 {
-    animation: scaleShape 4s infinite linear;
-    transform-origin: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
 }
-  .animated-shape2 {
-    animation: scaleShape 6s infinite linear;
-    transform-origin: center;
+
+#background-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
-  .animated-shape3 {
-    animation: scaleShape 8s infinite linear;
-    transform-origin: center;
+
+/* Main content styles */
+#content {
+  position: relative;
+  z-index: 1;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.text-left {
+  text-align: left;
+}
+/* Animations and keyframes */
+.animated-shape1 {
+  animation: scaleShape 4s infinite linear;
+  transform-origin: center;
+}
+.animated-shape2 {
+  animation: scaleShape 6s infinite linear;
+  transform-origin: center;
+}
+.animated-shape3 {
+  animation: scaleShape 8s infinite linear;
+  transform-origin: center;
 }
 
 @keyframes scaleShape {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-    100% {
-        transform: scale(1);
-    }
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
+.custom-height {
+  height: 100vh;
+}
 
-.custom-height{
-    height: 100vh;
+/* Accordion */
+/* Change the background color of the accordion button */
+.accordion-button {
+  background-color: var(--primary-color); /* Use your primary color */
+  color: white; /* Text color */
+  border: none;
+}
+
+/* Change the background color of the accordion when it's expanded */
+.accordion-button:not(.collapsed) {
+  color: #fff;
+  background-color: var(--primary-color);
+}
+/* Change the background of the accordion item */
+.accordion-item {
+  background-color: #f8f9fa; /* Light background for the item */
+}
+
+/* Custom styles for accordion body */
+.accordion-body {
+  background-color: #e9ecef; /* Slightly darker background */
+  color: #343a40; /* Darker text color */
+}
+
+/* Custom styles for accordion headers */
+.accordion-header {
+  background-color: var(--primary-color);
+  border-bottom: 1px solid var(--secondary-color);
+}
+
+/* Change button color inside accordion */
+.accordion-body .btn {
+  background-color: var(--secondary-color);
+  color: black;
+  border: none;
+}
+
+.accordion-body .btn:hover {
+  background-color: var(--primary-color);
+}
+
+/* Change the background of the accordion body on hover */
+.accordion-body:hover {
+  background-color: #d6d8db; /* Slightly darker background on hover */
+  transition: background-color 0.3s ease-in-out; /* Smooth transition */
+}
+
+/* Optional: Change text color on hover */
+.accordion-body:hover p,
+.accordion-body:hover .btn {
+  color: #212529; /* Darker text color on hover */
+}
+
+/* Optional: Add a box shadow or border effect */
+.accordion-body:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow on hover */
+  border-radius: 5px; /* Add slight rounding */
 }
