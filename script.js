@@ -10,7 +10,7 @@ function displayModuleContent (moduleIndex) {
   defaultText.style.display = 'none'
 
   // Start building the content string
-  let changedContent = `<div class="container d-flex flex-column justify-content-center align-items-center">`
+  let changedContent = `<div class="container d-flex flex-column text-dark p-3">`
 
   // Get the module data based on the moduleIndex
   const moduleData = data[moduleIndex]
