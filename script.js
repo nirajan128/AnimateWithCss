@@ -44,7 +44,7 @@ function displayModuleContent (moduleIndex) {
     // Set the innerHTML of the container to the generated content
     container.innerHTML = changedContent
   } else {
-    container.innerHTML = `<p>Module not found.</p>`
+    container.innerHTML = `<p>No module found</p>`
   }
 }
 
