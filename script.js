@@ -10,7 +10,7 @@ function displayModuleContent (moduleIndex) {
   defaultText.style.display = 'none'
 
   // Start building the content string
-  let changedContent = `<div class="container d-flex flex-column text-dark p-3">`
+  let changedContent = `<div class="container d-flex flex-column justify-content-center mt-3 text-dark p-3 poppins-regular">`
 
   // Get the module data based on the moduleIndex
   const moduleData = data[moduleIndex]
@@ -20,11 +20,9 @@ function displayModuleContent (moduleIndex) {
 
     // Loop through each lesson in the module
     moduleData.lesson.forEach(lessonItem => {
-      changedContent += `<h2>${lessonItem.title}</h2>`
-
       // Loop through each section in the lesson
       lessonItem.section.forEach(section => {
-        changedContent += `<h3>${section.heading}</h3>`
+        changedContent += `<h3 class="mt-3">${section.heading}</h3>`
 
         // Loop through each content item in the section
         section.content.forEach(item => {
