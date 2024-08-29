@@ -1,4 +1,4 @@
-import data from './data.js'
+import data from '../libs/data.js'
 
 const container = document.getElementById('content')
 const buttonOne = document.getElementById('buttonOne')
