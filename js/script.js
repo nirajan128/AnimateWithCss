@@ -29,9 +29,9 @@ function displayModuleContent (moduleIndex) {
         section.content.forEach(item => {
           // Check if the item is an object or a string
           if (typeof item === 'object') {
-            changedContent += `<p><strong>${item.point}:</strong> ${item.description}</p>`
+            changedContent += `<p class="merriweather-regular"><strong>${item.point}:</strong> ${item.description}</p>`
           } else {
-            changedContent += `<p>${item}</p>`
+            changedContent += `<p class="merriweather-regular">${item}</p>`
           }
         })
       })
