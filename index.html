@@ -1,50 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Animate With CSS</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./styles/style.css">
-</head>
-<body class="bg-dark"> 
-    
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body>
     <!-- Background Container -->
-     <!-- Checkout: https://www.w3schools.com/graphics/svg_intro.asp for SVG intoduction -->
+    <!-- Checkout: https://www.w3schools.com/graphics/svg_intro.asp for SVG intoduction -->
     <div id="background-container">
-        <svg id="background-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 599" >
-            <!-- random shapes with animation -->
-            <path class="animated-shape1"  d="M 1242 300 C 1242 457.4 975 686 824.8 735 C 674.6 784 372.4 718.6 280.2 591.4 C 188 464.2 145.2 102.8 237.4 -24.4 C 329.6 -151.6 648.2 -104.6 798.4 -55.6 C 948.6 -6.6 1242 142.6 1242 300" 
-            fill="rgba(255, 255, 255, 0.3)">
-          
-      </path>
+      <svg
+        id="background-svg"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1366 599"
+      >
+        <!-- random shapes with animation -->
+        <path
+          class="animated-shape1"
+          d="M 1242 300 C 1242 457.4 975 686 824.8 735 C 674.6 784 372.4 718.6 280.2 591.4 C 188 464.2 145.2 102.8 237.4 -24.4 C 329.6 -151.6 648.2 -104.6 798.4 -55.6 C 948.6 -6.6 1242 142.6 1242 300"
+          fill="rgba(4,170,109,0.3)"
+        ></path>
 
-      <path class="animated-shape2"  d="M 1265.4 300 C 1265.4 451 967.4 683.2 823.4 730 C 679.4 776.8 402.2 690.6 313.6 568 C 225 445.4 176.6 118.8 265.2 -3.8 C 353.8 -126.4 667.4 -143.4 811.4 -96.6 C 955.4 -49.8 1265.4 149 1265.4 300" 
-      fill="rgba(255, 255, 255, 0.3)">
-    
-</path>
-            
-<path  class="animated-shape3" d="M 1203.2 300 C 1203.2 456.8 948.6 608.8 799.8 657.4 C 651 706 377.4 716 285.2 589 C 193 462 167.8 119.4 260 -7.6 C 352.2 -134.6 655.6 -122.6 804.4 -74 C 953.2 -25.4 1203.2 143.2 1203.2 300"
-fill="rgba(255, 255, 255, 0.3)">
+        <path
+          class="animated-shape2"
+          d="M 1265.4 300 C 1265.4 451 967.4 683.2 823.4 730 C 679.4 776.8 402.2 690.6 313.6 568 C 225 445.4 176.6 118.8 265.2 -3.8 C 353.8 -126.4 667.4 -143.4 811.4 -96.6 C 955.4 -49.8 1265.4 149 1265.4 300"
+          fill="rgba(4,170,109
+, 0.8)"
+        ></path>
 
-</path> 
-        </svg>
+        <path
+          class="animated-shape3"
+          d="M 1203.2 300 C 1203.2 456.8 948.6 608.8 799.8 657.4 C 651 706 377.4 716 285.2 589 C 193 462 167.8 119.4 260 -7.6 C 352.2 -134.6 655.6 -122.6 804.4 -74 C 953.2 -25.4 1203.2 143.2 1203.2 300"
+          fill="rgba(4,170,109
+, 0.7
+)"
+        ></path>
+      </svg>
     </div>
 
     <!-- Safali: Content on top of the background -->
     <div id="content" class="container custom-height">
-        <div class="row h-100">
-            <div class="col-12 d-flex flex-column justify-content-center align-items-center">
-                <h1 class="source-code-pro" >ANIMATE WITH CSS</h1>
-                <p>Learn animation with CSS from basic</p>
-                <a href="./tutorials/introCss.html" class="btn btn-primary mt-4">Let's Start</a>
-            </div>
+      <div class="row h-100">
+        <div
+          class="col-12 d-flex flex-column justify-content-center align-items-center"
+        >
+          <h1 class="poppins-regular fw-bolder">
+            ANIMATE WITH <span class="accent-text fw-bolder">CSS</span>
+          </h1>
+          <p class="slogan fw-bold">Learn animation with CSS from basic</p>
+          <a
+            href="./tutorials/introCss.html"
+            class="btn secondary-color mt-4 fw-bold"
+            >Let's Start</a
+          >
         </div>
+      </div>
     </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
 
-    </script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
- 

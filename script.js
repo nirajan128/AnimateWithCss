@@ -14,9 +14,10 @@ function displayModuleContent (moduleIndex) {
 
   // Get the module data based on the moduleIndex
   const moduleData = data[moduleIndex]
+  console.log('Safali yo hera: ', moduleData)
 
   if (moduleData) {
-    changedContent += `<h1>${moduleData.module}</h1>`
+    changedContent += `<h1>${moduleData.moduleTitle}</h1>`
 
     // Loop through each lesson in the module
     moduleData.lesson.forEach(lessonItem => {

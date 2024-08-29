@@ -8,4 +8,5 @@
 - **feature0.4** added button(Homepage) - linked with intro to css
 - **feature0.5** added layout for intro to css
 - **feature0.6** added style for intro to css
-
+- **feature0.7** added style for intro to css
+- **feature0.8** added style for landing page

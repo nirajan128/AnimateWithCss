@@ -1,9 +1,9 @@
 const data = [
   {
-    module: 'Introduction to CSS animation',
+    moduleTitle: 'Introduction to CSS animation',
     lesson: [
       {
-        title: 'Understanding CSS animation',
+        lesson1: 'Understanding CSS animation',
         section: [
           {
             heading: 'What are css animation',
