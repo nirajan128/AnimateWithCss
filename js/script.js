@@ -17,7 +17,7 @@ function displayModuleContent (moduleIndex) {
   console.log('Safali yo hera: ', moduleData)
 
   if (moduleData) {
-    changedContent += `<h1>${moduleData.moduleTitle}</h1>`
+    changedContent += `<h1 class="text-decoration-underline">${moduleData.moduleTitle}</h1>`
 
     // Loop through each lesson in the module
     moduleData.lesson.forEach(lessonItem => {
