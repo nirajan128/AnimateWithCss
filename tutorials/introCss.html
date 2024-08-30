@@ -10,6 +10,11 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="../styles/style.css" />
     <style>
       /* Custom Hamburger Menu Styles */
@@ -41,6 +46,20 @@
       .accordion-button:not(.collapsed) {
         color: #fff;
         background-color: #007bff;
+      }
+
+      /* Custom styles */
+      .code-container {
+        background-color: #f8f9fa;
+        border-radius: 5px;
+        padding: 15px;
+        margin-bottom: 20px;
+      }
+      .preview-container {
+        border: 1px solid #dee2e6;
+        border-radius: 5px;
+        padding: 15px;
+        margin-bottom: 20px;
       }
     </style>
   </head>
@@ -101,6 +120,14 @@
                       >Intro to CSS Animation</a
                     >
                   </div>
+                  <div class="accordion-body">
+                    <a
+                      href="#"
+                      id="buttonTwo"
+                      class="link-underline-dark text-dark"
+                      >@Keyframes</a
+                    >
+                  </div>
                 </div>
               </div>
 
@@ -144,13 +171,54 @@
         >
           <div
             id="defaultText"
-            class="p-3 text-dark d-flex justify-content-center align-items-center flex-column"
+            class="p-3 text-dark d-flex justify-content-center flex-column"
           >
-            <h1>Main Content Area</h1>
-            <p>
-              This is where the main content goes. The sidebar will be hidden
-              behind a hamburger menu on smaller screens.
-            </p>
+            <div class="textContent">
+              <h2 class="poppins-regular fw-bolder">
+                Welcome To Animate with CSS
+              </h2>
+              <p class="merriwrather-regular">
+                Learn how to animate any HTML elements using animation.
+              </p>
+              <h4>Lesson structure:</h4>
+            </div>
+
+            <div class="container mt-5 snippets">
+              <div class="row">
+                <div class="col-6">
+                  <h2>HTML Example</h2>
+                  <div class="code-container">
+                    <pre><code class="language-html">
+&lt;div class="alert alert-primary" role="alert"&gt;
+    This is a primary alert—check it out!
+&lt;/div&gt;
+            </code></pre>
+                  </div>
+                </div>
+
+                <div class="col-6">
+                  <h2>CSS Example</h2>
+                  <div class="code-container">
+                    <pre><code class="language-css">
+.alert-primary {
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+}
+            </code></pre>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <h2>Preview</h2>
+                <div class="preview-container">
+                  <div class="alert alert-primary" role="alert">
+                    This is a primary alert—check it out!
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -162,5 +230,8 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+    <!-- Prism.js for syntax highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-css.min.js"></script>
   </body>
 </html>
