@@ -31,6 +31,20 @@ const data = [
                   'Guide users’ attention to important elements or actions.'
               }
             ]
+          },
+          {
+            heading: 'You will learn the following animation properties:',
+            content: [
+              '@keyframe',
+              'animation-name',
+              'animation-duration',
+              'animation-delay',
+              'animation-iteration-count',
+              'animation-direction',
+              'animation-timing-function',
+              'animation-fill-mode',
+              'animation'
+            ]
           }
         ]
       }
