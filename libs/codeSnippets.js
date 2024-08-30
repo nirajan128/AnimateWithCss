@@ -1,60 +1,41 @@
-const htmlCode = `
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Project</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <h1>Hello, World!</h1>
-  <p>This is a simple project setup.</p>
-</body>
-</html>
-`
+// Make sure the DOM is fully loaded before running your script
+document.addEventListener('DOMContentLoaded', function () {
+  // Initialize CodeMirror editors
+  const htmlEditor = CodeMirror.fromTextArea(
+    document.getElementById('html-editor'),
+    {
+      mode: 'xml',
+      theme: 'monokai',
+      lineNumbers: true
+    }
+  )
 
-const cssCode = `
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 20px;
-  background-color: #f4f4f4;
-}
+  const cssEditor = CodeMirror.fromTextArea(
+    document.getElementById('css-editor'),
+    {
+      mode: 'css',
+      theme: 'monokai',
+      lineNumbers: true
+    }
+  )
 
-h1 {
-  color: #333;
-}
+  // Function to update preview
+  function updatePreview () {
+    const html = htmlEditor.getValue()
+    const css = cssEditor.getValue()
+    const preview = document.getElementById('preview')
+    preview.innerHTML = html
 
-p {
-  color: #555;
-}
-`
+    // Create a style element for CSS
+    const style = document.createElement('style')
+    style.textContent = css
+    preview.appendChild(style)
+  }
 
-// Reference to elements
-const htmlTab = document.getElementById('html-tab')
-const cssTab = document.getElementById('css-tab')
+  // Update preview on change
+  htmlEditor.on('change', updatePreview)
+  cssEditor.on('change', updatePreview)
 
-const htmlDisplay = document.getElementById('html')
-const cssDisplay = document.getElementById('css')
-
-const preview = document.getElementById('preview')
-
-// Display the initial code
-htmlDisplay.textContent = htmlCode
-cssDisplay.textContent = cssCode
-
-// Update preview with HTML content
-preview.innerHTML = htmlCode
-
-// Event listeners for tabs
-htmlTab.addEventListener('click', () => {
-  preview.innerHTML = htmlCode
-})
-
-cssTab.addEventListener('click', () => {
-  const styleElement = document.createElement('style')
-  styleElement.textContent = cssCode
-  preview.innerHTML = htmlCode
-  preview.appendChild(styleElement)
+  // Initial preview update
+  updatePreview()
 })
