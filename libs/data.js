@@ -32,7 +32,7 @@ const data = [
     ]
   },
   {
-    title: 'Lesson 2: @keygrames',
+    title: 'Lesson 2: @keyframes',
     section: [
       {
         heading: '@Keyframes',
