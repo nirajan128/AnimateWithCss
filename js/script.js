@@ -24,6 +24,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const container = document.getElementById('content')
   const buttonOne = document.getElementById('button0')
   const buttonTwo = document.getElementById('button1')
+  const buttonThree = document.getElementById('button2')
   const defaultText = document.getElementById('defaultText')
 
   console.log(data)
@@ -138,5 +139,8 @@ window.addEventListener('DOMContentLoaded', () => {
   })
   buttonTwo.addEventListener('click', () => {
     selectLesson(1)
+  })
+  buttonThree.addEventListener('click', () => {
+    selectLesson(2)
   })
 })

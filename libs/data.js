@@ -85,6 +85,54 @@ const data = [
         ]
       }
     ]
+  },
+  {
+    title: 'Lesson 3 : animation-name',
+    section: [
+      {
+        heading: 'animation-name',
+        content:
+          'The animation-name property in CSS is used to specify the name of the keyframes animation that should be applied to an element. This property is part of the CSS Animation module, which allows you to create animations that change element styles over time.'
+      },
+      {
+        heading: 'Syntax',
+        content: [
+          `@keyframes move {
+              0% { transform: translateX(0); }
+             100% { transform: translateX(100px); }
+  }`,
+          `
+          .animated-element {
+             animation-name: move;
+             animation-duration: 2s; /* Details in coming lesson */
+             animation-timing-function: ease-in-out; /* Details in coming lesson */
+             animation-iteration-count: infinite; /* Details in coming lesson */
+  }
+
+          `
+        ]
+      },
+      {
+        heading: 'Key points',
+        content: [
+          {
+            title: 'Naming: ',
+            description:
+              'The name used in animation-name must match the name specified in the @keyframes rule.'
+          },
+          {
+            title: 'Multiple Animation: ',
+            description:
+              'You can specify multiple animations by separating them with commas in animation-name, and similarly for animation-duration, animation-timing-function, and other animation properties.'
+          },
+          {
+            title: 'Fallback: ',
+            description:
+              'If the @keyframes rule is missing or the name is incorrect, no animation will be applied.'
+          }
+        ]
+      }
+    ]
   }
 ]
 
