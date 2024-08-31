@@ -52,8 +52,38 @@
         background-color: #007bff;
       }
 
-      .codeMirror {
-        height: 150px !important;
+      .code-container {
+        width: 100%;
+        max-width: 100%;
+      }
+      .CodeMirror {
+        height: auto;
+        min-height: 100px;
+        max-height: 400px;
+        width: 100%;
+      }
+
+      .box {
+        height: 50px;
+        width: 50px;
+        background-color: gold;
+        animation: roll 3s ease-in infinite;
+      }
+
+      .spacing {
+        word-spacing: 4px;
+      }
+
+      @keyframes roll {
+        0% {
+          transform: translateX(0);
+        }
+        50% {
+          transform: translateX(200px);
+        }
+        100% {
+          transform: translateX(0px);
+        }
       }
     </style>
   </head>
@@ -160,31 +190,44 @@
 
         <!-- Main Content -->
         <div
-          class="col-sm-12 col-md-10 col-lg-10 bg-primary custom-height d-flex flex-column align-items-center text-start bg-color"
+          class="col-sm-12 col-md-10 col-lg-10 bg-primary d-flex flex-column align-items-center text-start bg-color"
           id="content"
         >
           <div
             id="defaultText"
-            class="p-3 text-dark d-flex justify-content-center flex-column"
+            class="p-5 text-dark d-flex justify-content-center flex-column"
           >
             <div class="textContent">
-              <h2 class="poppins-regular fw-bolder">
-                Welcome To Animate with CSS
+              <h2 class="poppins-regular fw-bolder text-decoration-underline">
+                Welcome to the world of CSS Animation
               </h2>
-              <p class="merriwrather-regular">
-                Learn how to animate any HTML elements using animation.
+              <p class="merriweather-regular spacing">
+                Are you ready to bring your web designs to life? Welcome to our
+                comprehensive guide on CSS animations, where creativity meets
+                code!
+                <span class="secondary-color"
+                  >This project is proudly created by students who are
+                  passionate about web development and design. Whether you're a
+                  complete beginner or looking to enhance your existing skills,
+                  this platform is designed to help you master the art of
+                  animation in CSS.</span
+                >
               </p>
-              <h4>Lesson structure:</h4>
+
+              <h5 class="source-code-pro fw-bold">
+                A simple example of what animation can do!<br />
+                don't worry about the code, we will go through each of the
+                concepts in detail
+              </h5>
             </div>
 
             <div class="container mt-5 snippets">
               <div class="row">
                 <div class="col-12 col-lg-6">
-                  <h2>HTML Example</h2>
+                  <h5 class="source-code-pro">HTML</h5>
                   <div class="code-container">
                     <textarea id="html-editor" class="form-control mb-3">
-<div class="alert alert-primary" role="alert">
-    This is a primary alert—check it out!
+<div class="alert alert-primary box" role="alert">
 </div>
             </textarea
                     >
@@ -192,23 +235,28 @@
                 </div>
 
                 <div class="col-sm-12 col-lg-6">
-                  <h2>CSS Example</h2>
+                  <h5 class="source-code-pro">CSS</h5>
                   <div class="code-container">
                     <textarea id="css-editor" class="form-control mb-3">
-.alert-primary {
-    color: red;
-    background-color: #ffffff;
-    border-color: #b8daff;
+.alert-primary {color: red; background-color: #ffffff; border-color: #b8daff;
 }
-            </textarea
+.box { height: 50px; width: 50px; background-color: gold;
+animation: roll 3s ease-in infinite;
+ }
+
+@keyframes roll { 
+  0% { transform: translateX(0); }
+  50% { transform: translateX(200px); }
+  100% { transform: translateX(0px); } }
+</textarea
                     >
                   </div>
                 </div>
               </div>
 
-              <div class="col-12">
-                <h2>Preview</h2>
-                <div id="preview" class="preview-container"></div>
+              <div class="col-12 secondary-color p-1">
+                <h5 class="source-code-pro">Preview</h5>
+                <div id="preview" class="preview-container p-2"></div>
               </div>
             </div>
           </div>

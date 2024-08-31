@@ -1,4 +1,3 @@
-// Make sure the DOM is fully loaded before running your script
 document.addEventListener('DOMContentLoaded', function () {
   // Initialize CodeMirror editors
   const htmlEditor = CodeMirror.fromTextArea(
@@ -6,7 +5,9 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       mode: 'xml',
       theme: 'monokai',
-      lineNumbers: true
+      lineNumbers: true,
+      lineWrapping: true,
+      viewportMargin: Infinity
     }
   )
 
@@ -15,7 +16,9 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       mode: 'css',
       theme: 'monokai',
-      lineNumbers: true
+      lineNumbers: true,
+      lineWrapping: true,
+      viewportMargin: Infinity
     }
   )
 
@@ -32,10 +35,32 @@ document.addEventListener('DOMContentLoaded', function () {
     preview.appendChild(style)
   }
 
-  // Update preview on change
-  htmlEditor.on('change', updatePreview)
-  cssEditor.on('change', updatePreview)
+  // Function to resize editors
+  function resizeEditors () {
+    const editorContainers = document.querySelectorAll('.code-container')
+    editorContainers.forEach(container => {
+      const editor = container.querySelector('.CodeMirror')
+      if (editor) {
+        editor.style.height = 'auto'
+        editor.style.height = editor.scrollHeight + 'px'
+      }
+    })
+  }
 
-  // Initial preview update
+  // Update preview on change
+  htmlEditor.on('change', () => {
+    updatePreview()
+    resizeEditors()
+  })
+  cssEditor.on('change', () => {
+    updatePreview()
+    resizeEditors()
+  })
+
+  // Initial preview update and editor resize
   updatePreview()
+  resizeEditors()
+
+  // Resize editors on window resize
+  window.addEventListener('resize', resizeEditors)
 })
