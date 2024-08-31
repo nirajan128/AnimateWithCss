@@ -31,6 +31,7 @@ const data = [
       }
     ]
   },
+
   {
     title: 'Lesson 2: @keyframes',
     section: [
@@ -86,6 +87,7 @@ const data = [
       }
     ]
   },
+
   {
     title: 'Lesson 3 : animation-name',
     section: [
@@ -133,6 +135,10 @@ const data = [
         ]
       }
     ]
+  },
+  
+  {
+    title : "Lesson -4 Animation duration"
   }
 ]
 
