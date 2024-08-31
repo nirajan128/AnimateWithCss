@@ -22,12 +22,7 @@ window.addEventListener('DOMContentLoaded', () => {
   })
 
   const container = document.getElementById('content')
-  const buttonOne = document.getElementById('button0')
-  const buttonTwo = document.getElementById('button1')
-  const buttonThree = document.getElementById('button2')
   const defaultText = document.getElementById('defaultText')
-
-  console.log(data)
 
   /**
    * Selects index of lesson from data
@@ -35,43 +30,49 @@ window.addEventListener('DOMContentLoaded', () => {
   function selectLesson (lessonIndex) {
     defaultText.style.display = 'none'
     try {
-      //gets the index from the lessonIndex
       const lessonData = data[lessonIndex]
-      lessonIndex === 0
-        ? introLessonDesign(lessonData)
-        : otherLessonDesign(lessonData)
+      if (lessonData) {
+        lessonIndex === 0
+          ? introLessonDesign(lessonData)
+          : otherLessonDesign(lessonData)
+      } else {
+        console.error('No data found for the selected lesson')
+      }
     } catch (error) {
-      console.log('No data found')
+      console.error('Error occurred while selecting lesson:', error)
     }
+  }
+
+  function generateSectionContent (section) {
+    let sectionContent = `<h3>${section.heading}</h3>`
+    if (typeof section.content === 'string') {
+      sectionContent += `<p class="merriweather-regular">${section.content}</p>`
+    } else if (Array.isArray(section.content)) {
+      if (typeof section.content[0] === 'string') {
+        sectionContent += drawSnippets(section.content)
+      } else if (typeof section.content[0] === 'object') {
+        section.content.forEach(item => {
+          sectionContent += `<p class="merriweather-regular">${item.title} : ${item.description}</p>`
+        })
+      }
+    }
+    return sectionContent
   }
 
   function introLessonDesign (lessonData) {
     console.log('lesson 1', lessonData)
-    // Start building the content string
     let changedContent = `<div class="container d-flex flex-column justify-content-center mt-3 text-dark p-3 poppins-regular">`
     if (lessonData) {
       changedContent += `<h2 class="text-decoration-underline">${lessonData.title}</h2>`
       changedContent += `<div class="row">`
 
-      // Applies row to first two elements
       lessonData.section.forEach((eachSection, eachSectionIndex) => {
-        if (eachSectionIndex < 2) {
-          changedContent += `<div class="col-md-6 section mt-3 p-4 border-bottom">`
-        } else {
-          changedContent += `<div class="col-12 section mt-3 p-2 border-bottom">`
-        }
+        changedContent +=
+          eachSectionIndex < 2
+            ? `<div class="col-md-6 section mt-3 p-4 border-bottom">`
+            : `<div class="col-12 section mt-3 p-2 border-bottom">`
 
-        changedContent += `<h3>${eachSection.heading}</h3>`
-
-        // Check if the data is an array
-        if (Array.isArray(eachSection.content)) {
-          eachSection.content.forEach(content => {
-            changedContent += `<p class="merriweather-regular">${content}</p>`
-          })
-        } else {
-          changedContent += `<p>${eachSection.content}</p>`
-        }
-
+        changedContent += generateSectionContent(eachSection)
         changedContent += `</div>` // closing tag: col
       })
 
@@ -84,28 +85,16 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   function otherLessonDesign (lessonData) {
-    console.log('lesson2', lessonData)
+    console.log('lesson 2', lessonData)
     let changedContent = `<div class="container d-flex flex-column justify-content-center mt-3 text-dark p-3 poppins-regular">`
     if (lessonData) {
       changedContent += `<h2 class="text-decoration-underline">${lessonData.title}</h2>`
       changedContent += `<div class="row">`
 
-      // section
       lessonData.section.forEach(eachSection => {
-        changedContent += `<h3 class="mt-3">${eachSection.heading} </h3>`
-        if (typeof eachSection.content === 'string') {
-          // checks if content is a string
-          changedContent += `<p class='merriweather-regular'>${eachSection.content}</p>`
-        } else if (Array.isArray(eachSection.content)) {
-          // since contents has two types of array, a string and object we need a condition to check both
-          if (typeof eachSection.content[0] === 'string') {
-            changedContent += drawSnippets(eachSection.content)
-          } else if (typeof eachSection.content[0] === 'object') {
-            eachSection.content.forEach(items => {
-              changedContent += `<p class='merriweather-regular'>${items.title} : ${items.description}</p>`
-            })
-          }
-        }
+        changedContent += `<div class="col-12 section mt-3 p-2 border-bottom">`
+        changedContent += generateSectionContent(eachSection)
+        changedContent += `</div>` // closing tag: col
       })
 
       changedContent += `</div>` // row closing tag
@@ -127,20 +116,18 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   function drawSnippets (contentArray) {
-    let snippetContents = ''
-    contentArray.forEach(code => {
-      snippetContents += `<textarea class='dynamic-snippet p-3'>${code.trim()}</textarea>`
-    })
-    return snippetContents
+    return contentArray
+      .map(
+        code =>
+          `<textarea class='dynamic-snippet p-3'>${code.trim()}</textarea>`
+      )
+      .join('')
   }
 
-  buttonOne.addEventListener('click', () => {
-    selectLesson(0)
-  })
-  buttonTwo.addEventListener('click', () => {
-    selectLesson(1)
-  })
-  buttonThree.addEventListener('click', () => {
-    selectLesson(2)
-  })
+  // Attach event listeners to buttons dynamically
+  for (let i = 0; i < data.length; i++) {
+    document.getElementById(`button${i}`).addEventListener('click', () => {
+      selectLesson(i)
+    })
+  }
 })

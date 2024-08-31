@@ -9,11 +9,11 @@ const data = [
       },
       {
         heading: 'Why use Css Animation',
-        content: [
-          'Make web interactions more engaging and intuitive.',
-          'Add life and movement to static web pages.',
-          'Guide users’ attention to important elements or actions.'
-        ]
+        content: `
+          Make web interactions more engaging and intuitive<br>
+          Add life and movement to static web pages<br>
+          Guide users’ attention to important elements or actions<br>
+          `
       },
       {
         heading: 'You will learn the following animation properties:',
