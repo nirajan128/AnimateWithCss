@@ -1,120 +1,142 @@
 import data from '../libs/data.js'
 
-const container = document.getElementById('content')
-const buttonOne = document.getElementById('buttonOne')
-const buttonTwo = document.getElementById('buttonTwo')
-const defaultText = document.getElementById('defaultText')
+window.addEventListener('DOMContentLoaded', () => {
+  const accordionBodyContainer = document.getElementById(
+    'accordionBodyContainer'
+  )
 
-console.log(data)
+  // Clear existing content (optional)
+  accordionBodyContainer.innerHTML = ''
 
-/**
- * Selects index of lesson from data
- */
-function selectLesson (lessonIndex) {
-  defaultText.style.display = 'none'
-  try {
-    //gets the index from the lessonIndex
-    const lessonData = data[lessonIndex]
-    lessonIndex === 0
-      ? introLessonDesign(lessonData)
-      : otherLessonDesign(lessonData)
-  } catch (error) {
-    console.log('No data found')
+  data.forEach((item, index) => {
+    const accordionBody = document.createElement('div')
+    accordionBody.classList.add('accordion-body')
+
+    accordionBody.innerHTML = `
+      <a href="#" id="button${index}" class="link-underline-dark text-dark">
+        ${item.title}
+      </a>
+    `
+
+    accordionBodyContainer.appendChild(accordionBody)
+  })
+
+  const container = document.getElementById('content')
+  const buttonOne = document.getElementById('button0')
+  const buttonTwo = document.getElementById('button1')
+  const defaultText = document.getElementById('defaultText')
+
+  console.log(data)
+
+  /**
+   * Selects index of lesson from data
+   */
+  function selectLesson (lessonIndex) {
+    defaultText.style.display = 'none'
+    try {
+      //gets the index from the lessonIndex
+      const lessonData = data[lessonIndex]
+      lessonIndex === 0
+        ? introLessonDesign(lessonData)
+        : otherLessonDesign(lessonData)
+    } catch (error) {
+      console.log('No data found')
+    }
   }
-}
 
-function introLessonDesign (lessonData) {
-  console.log('lesson 1', lessonData)
-  // Start building the content string
-  let changedContent = `<div class="container d-flex flex-column justify-content-center mt-3 text-dark p-3 poppins-regular">`
-  if (lessonData) {
-    changedContent += `<h2 class="text-decoration-underline">${lessonData.title}</h2>`
-    changedContent += `<div class="row">`
+  function introLessonDesign (lessonData) {
+    console.log('lesson 1', lessonData)
+    // Start building the content string
+    let changedContent = `<div class="container d-flex flex-column justify-content-center mt-3 text-dark p-3 poppins-regular">`
+    if (lessonData) {
+      changedContent += `<h2 class="text-decoration-underline">${lessonData.title}</h2>`
+      changedContent += `<div class="row">`
 
-    //Applies row to first two element
-    lessonData.section.forEach((eachSection, eachSectionIndex) => {
-      if (eachSectionIndex < 2) {
-        changedContent += `<div class="col-md-6 section mt-3 p-4 border-bottom">`
-      } else {
-        changedContent += `<div class="col-12 section mt-3 p-2 border-bottom">`
-      }
-
-      changedContent += `<h3>${eachSection.heading}</h3>`
-
-      //Check if the data is an array
-      if (Array.isArray(eachSection.content)) {
-        eachSection.content.forEach(content => {
-          changedContent += `<p class="merriweather-regular">${content}</p>`
-        })
-      } else {
-        changedContent += `<p>${eachSection.content}</p>`
-      }
-
-      changedContent += `</div>` //closing tag: col
-    })
-
-    changedContent += `</div>` //closing tag: row
-  }
-  changedContent += `</div>` //closing tag:container
-
-  // Set the innerHTML of the container to the generated content
-  container.innerHTML = changedContent
-}
-
-function otherLessonDesign (lessonData) {
-  console.log('lesson2', lessonData)
-  let changedContent = `<div class="container d-flex flex-column justify-content-center mt-3 text-dark p-3 poppins-regular">`
-  if (lessonData) {
-    changedContent += `<h2 class="text-decoration-underline">${lessonData.title}</h2>`
-    changedContent += `<div class="row">`
-
-    //section
-    lessonData.section.forEach(eachSection => {
-      changedContent += `<h3 class="mt-3">${eachSection.heading} </h3>`
-      if (typeof eachSection.content === 'string') {
-        //checks if content is a string
-        changedContent += `<p class='merriweather-regular'>${eachSection.content}</p>`
-      } else if (Array.isArray(eachSection.content)) {
-        //since contents has two tyeof array a string and object we need a condition to check both
-        if (typeof eachSection.content[0] === 'string') {
-          changedContent += drawSnippets(eachSection.content)
-        } else if (typeof eachSection.content[0] === 'object') {
-          eachSection.content.forEach(items => {
-            changedContent += `<p class='merriweather-regular'>${items.title} : ${items.description}</p>`
-          })
+      // Applies row to first two elements
+      lessonData.section.forEach((eachSection, eachSectionIndex) => {
+        if (eachSectionIndex < 2) {
+          changedContent += `<div class="col-md-6 section mt-3 p-4 border-bottom">`
+        } else {
+          changedContent += `<div class="col-12 section mt-3 p-2 border-bottom">`
         }
-      }
-    })
 
-    changedContent += `</div>` //row closing tag
+        changedContent += `<h3>${eachSection.heading}</h3>`
+
+        // Check if the data is an array
+        if (Array.isArray(eachSection.content)) {
+          eachSection.content.forEach(content => {
+            changedContent += `<p class="merriweather-regular">${content}</p>`
+          })
+        } else {
+          changedContent += `<p>${eachSection.content}</p>`
+        }
+
+        changedContent += `</div>` // closing tag: col
+      })
+
+      changedContent += `</div>` // closing tag: row
+    }
+    changedContent += `</div>` // closing tag: container
+
+    // Set the innerHTML of the container to the generated content
+    container.innerHTML = changedContent
   }
-  changedContent += `</div>` //container closing tag
 
-  // Set the innerHTML of the container to the generated content
-  container.innerHTML = changedContent
+  function otherLessonDesign (lessonData) {
+    console.log('lesson2', lessonData)
+    let changedContent = `<div class="container d-flex flex-column justify-content-center mt-3 text-dark p-3 poppins-regular">`
+    if (lessonData) {
+      changedContent += `<h2 class="text-decoration-underline">${lessonData.title}</h2>`
+      changedContent += `<div class="row">`
 
-  // Apply CodeMirror only to the snippets generated by this script
-  document.querySelectorAll('.dynamic-snippet').forEach(textarea => {
-    CodeMirror.fromTextArea(textarea, {
-      mode: 'css',
-      theme: 'monokai',
-      lineNumbers: true,
-      readOnly: true
+      // section
+      lessonData.section.forEach(eachSection => {
+        changedContent += `<h3 class="mt-3">${eachSection.heading} </h3>`
+        if (typeof eachSection.content === 'string') {
+          // checks if content is a string
+          changedContent += `<p class='merriweather-regular'>${eachSection.content}</p>`
+        } else if (Array.isArray(eachSection.content)) {
+          // since contents has two types of array, a string and object we need a condition to check both
+          if (typeof eachSection.content[0] === 'string') {
+            changedContent += drawSnippets(eachSection.content)
+          } else if (typeof eachSection.content[0] === 'object') {
+            eachSection.content.forEach(items => {
+              changedContent += `<p class='merriweather-regular'>${items.title} : ${items.description}</p>`
+            })
+          }
+        }
+      })
+
+      changedContent += `</div>` // row closing tag
+    }
+    changedContent += `</div>` // container closing tag
+
+    // Set the innerHTML of the container to the generated content
+    container.innerHTML = changedContent
+
+    // Apply CodeMirror only to the snippets generated by this script
+    document.querySelectorAll('.dynamic-snippet').forEach(textarea => {
+      CodeMirror.fromTextArea(textarea, {
+        mode: 'css',
+        theme: 'monokai',
+        lineNumbers: true,
+        readOnly: true
+      })
     })
-  })
-}
+  }
 
-function drawSnippets (contentArray) {
-  let snippetContents = ''
-  contentArray.forEach(code => {
-    snippetContents += `<textarea class='dynamic-snippet p-3'>${code.trim()}</textarea>`
-  })
-  return snippetContents
-}
+  function drawSnippets (contentArray) {
+    let snippetContents = ''
+    contentArray.forEach(code => {
+      snippetContents += `<textarea class='dynamic-snippet p-3'>${code.trim()}</textarea>`
+    })
+    return snippetContents
+  }
 
-buttonOne.addEventListener('click', () => {
-  selectLesson(0)
-})
-buttonTwo.addEventListener('click', () => {
-  selectLesson(1)
+  buttonOne.addEventListener('click', () => {
+    selectLesson(0)
+  })
+  buttonTwo.addEventListener('click', () => {
+    selectLesson(1)
+  })
 })
