@@ -52,7 +52,7 @@ window.addEventListener('DOMContentLoaded', () => {
         sectionContent += drawSnippets(section.content)
       } else if (typeof section.content[0] === 'object') {
         section.content.forEach(item => {
-          sectionContent += `<p class="merriweather-regular">${item.title} : ${item.description}</p>`
+          sectionContent += `<p class="merriweather-regular"><span class="fw-bold">${item.title}</span> : ${item.description}</p>`
         })
       }
     }
