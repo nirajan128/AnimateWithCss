@@ -4,10 +4,15 @@ window.addEventListener('DOMContentLoaded', () => {
   const accordionBodyContainer = document.getElementById(
     'accordionBodyContainer'
   )
+  const container = document.getElementById('content')
+  const defaultText = document.getElementById('defaultText')
+
+  let currentIndex = 0
 
   // Clear existing content (optional)
   accordionBodyContainer.innerHTML = ''
 
+  //Create accordion body for each element in data array
   data.forEach((item, index) => {
     const accordionBody = document.createElement('div')
     accordionBody.classList.add('accordion-body')
@@ -17,24 +22,34 @@ window.addEventListener('DOMContentLoaded', () => {
         ${item.title}
       </a>
     `
-
     accordionBodyContainer.appendChild(accordionBody)
   })
 
-  const container = document.getElementById('content')
-  const defaultText = document.getElementById('defaultText')
+  // Function to highlight the selected accordion body
+  function highlightSelectedAccordion (index) {
+    const accordionBodies = document.querySelectorAll('.accordion-body')
+    accordionBodies.forEach((body, i) => {
+      if (i === index) {
+        body.style.backgroundColor = '#AFE1AF' // Highlight color for selected
+      } else {
+        body.style.backgroundColor = '' // Default color for others
+      }
+    })
+  }
 
   /**
    * Selects index of lesson from data
    */
   function selectLesson (lessonIndex) {
     defaultText.style.display = 'none'
+    currentIndex = lessonIndex //sets the current index to the lesson index
     try {
       const lessonData = data[lessonIndex]
       if (lessonData) {
         lessonIndex === 0
           ? introLessonDesign(lessonData)
           : otherLessonDesign(lessonData)
+        highlightSelectedAccordion(lessonIndex) // Highlight the selected accordion item
       } else {
         console.error('No data found for the selected lesson')
       }
@@ -63,6 +78,13 @@ window.addEventListener('DOMContentLoaded', () => {
     console.log('lesson 1', lessonData)
     let changedContent = `<div class="container d-flex flex-column justify-content-center mt-3 text-dark p-3 poppins-regular">`
     if (lessonData) {
+      changedContent += `<div class="d-flex justify-content-between mb-3"><a href="../index.html" class='btn bg-accent'>Home</a>
+</div>`
+      changedContent += `<div class="d-flex justify-content-between mb-3">
+        <button id="prevButton" class="btn btn-secondary">Previous</button>
+        <button id="nextButton" class="btn btn-primary">Next</button>
+      </div>`
+
       changedContent += `<h2 class="text-decoration-underline">${lessonData.title}</h2>`
       changedContent += `<div class="row">`
 
@@ -82,12 +104,28 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // Set the innerHTML of the container to the generated content
     container.innerHTML = changedContent
+
+    // Add event listeners for navigation buttons
+    document.getElementById('prevButton').addEventListener('click', () => {
+      navigate(-1)
+    })
+    document.getElementById('nextButton').addEventListener('click', () => {
+      navigate(1)
+    })
   }
 
   function otherLessonDesign (lessonData) {
     console.log('lesson 2', lessonData)
     let changedContent = `<div class="container d-flex flex-column justify-content-center mt-3 text-dark p-3 poppins-regular">`
     if (lessonData) {
+      changedContent += `<div class="d-flex justify-content-between mb-3"><a href="../index.html" class='btn bg-accent'>Home</a>
+</div>`
+
+      changedContent += `<div class="d-flex justify-content-between mb-3">
+        <button id="prevButton" class="btn btn-secondary">Previous</button>
+        <button id="nextButton" class="btn btn-primary">Next</button>
+      </div>`
+
       changedContent += `<h2 class="text-decoration-underline">${lessonData.title}</h2>`
       changedContent += `<div class="row">`
 
@@ -113,6 +151,14 @@ window.addEventListener('DOMContentLoaded', () => {
         readOnly: true
       })
     })
+
+    // Add event listeners for navigation buttons
+    document.getElementById('prevButton').addEventListener('click', () => {
+      navigate(-1)
+    })
+    document.getElementById('nextButton').addEventListener('click', () => {
+      navigate(1)
+    })
   }
 
   function drawSnippets (contentArray) {
@@ -122,6 +168,19 @@ window.addEventListener('DOMContentLoaded', () => {
           `<textarea class='dynamic-snippet p-3'>${code.trim()}</textarea>`
       )
       .join('')
+  }
+
+  function navigate (direction) {
+    const newIndex = currentIndex + direction
+    if (newIndex >= 0 && newIndex < data.length) {
+      selectLesson(newIndex)
+    }
+  }
+
+  function showLandingPage () {
+    container.style.display = 'none'
+    highlightSelectedAccordion(-1)
+    console.log('clicked')
   }
 
   // Attach event listeners to buttons dynamically
