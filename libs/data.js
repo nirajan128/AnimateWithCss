@@ -85,7 +85,8 @@ const data = [
           }
         ]
       }
-    ]
+    ],
+    isEditable: false
   },
 
   {
@@ -131,7 +132,8 @@ const data = [
           }
         ]
       }
-    ]
+    ],
+    isEditable: false
   },
 
   {
@@ -181,7 +183,8 @@ const data = [
           }
         ]
       }
-    ]
+    ],
+    isEditable: false
   },
 
   {
@@ -230,7 +233,8 @@ const data = [
           }
         ]
       }
-    ]
+    ],
+    isEditable: false
   },
 
   {
@@ -280,7 +284,8 @@ const data = [
           }
         ]
       }
-    ]
+    ],
+    isEditable: false
   },
   {
     title: 'Animation-direction',
@@ -335,7 +340,8 @@ const data = [
           }
         ]
       }
-    ]
+    ],
+    isEditable: false
   },
   {
     title: 'Animation-timing-function',
@@ -393,7 +399,8 @@ const data = [
           }
         ]
       }
-    ]
+    ],
+    isEditable: false
   },
   {
     title: 'Animation-fill-mode',
@@ -448,7 +455,8 @@ const data = [
           }
         ]
       }
-    ]
+    ],
+    isEditable: false
   },
   {
     title: 'Animation',
@@ -507,7 +515,64 @@ const data = [
           }
         ]
       }
-    ]
+    ],
+    isEditable: false
+  },
+
+  {
+    title: 'Exercise',
+    section: [
+      {
+        heading: 'Animate the box',
+        content:
+          'Now that you have learned css animation, its time to put it on use'
+      },
+      {
+        heading: 'Steps',
+        content: [
+          { title: 'Step 1', description: 'Create a HTML and CSS file' },
+          {
+            title: 'Step 2',
+            description: 'Copey the following code in the related file'
+          },
+          { title: 'Step 3', description: 'Start Animating' }
+        ]
+      },
+      {
+        heading: 'Exercise',
+        content: [
+          `
+          /* HTML */
+           <!DOCTYPE html>
+           <html lang="en">
+            <head>
+              <meta charset="UTF-8" />
+              <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+              <title>ANimate</title>
+               <link rel="stylesheet" href="./style.css">
+            </head>
+            <body>
+              <div class="box"></div>
+            </body>
+        </html>
+          `,
+          `
+          /* CSS */
+           .box{
+             width: 50px;
+             height:50px;
+             background-color: red;
+             animation:   /* Put your code here*/
+           }
+          
+           @Keyframe doSomething{
+            /* Make the box do something */
+           }
+          `
+        ]
+      }
+    ],
+    isEditable: true
   }
 ]
 
