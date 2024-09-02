@@ -20,72 +20,6 @@
     />
 
     <link rel="stylesheet" href="../styles/style.css" />
-    <style>
-      /* Custom Hamburger Menu Styles */
-      .custom-toggler {
-        border: none;
-        background: none;
-        padding: 0;
-        outline: none;
-      }
-
-      .custom-toggler .icon-bar {
-        width: 30px;
-        height: 3px;
-        background-color: #fff;
-        margin: 5px 0;
-      }
-
-      /* Sidebar styles to fit content */
-      .nav-height {
-        display: flex;
-        flex-direction: column;
-        height: auto !important; /* Force auto height */
-      }
-
-      .accordion-collapse {
-        transition: height 0.3s ease;
-      }
-
-      .accordion-button:not(.collapsed) {
-        color: #fff;
-        background-color: #007bff;
-      }
-
-      .code-container {
-        width: 100%;
-        max-width: 100%;
-      }
-      .CodeMirror {
-        height: auto;
-        min-height: 100px;
-        max-height: 400px;
-        width: 100%;
-      }
-
-      .box {
-        height: 50px;
-        width: 50px;
-        background-color: gold;
-        animation: roll 3s ease-in infinite;
-      }
-
-      .spacing {
-        word-spacing: 4px;
-      }
-
-      @keyframes roll {
-        0% {
-          transform: translateX(0);
-        }
-        50% {
-          transform: translateX(200px);
-        }
-        100% {
-          transform: translateX(0px);
-        }
-      }
-    </style>
   </head>
   <body>
     <div class="container-fluid custom-height bg-dark">
@@ -152,6 +86,10 @@
             id="defaultText"
             class="p-5 text-dark d-flex justify-content-center flex-column"
           >
+            <div class="d-flex justify-content-between mb-3">
+              <a href="../index.html" class="btn"> Home</a>
+            </div>
+
             <div class="textContent">
               <h2 class="poppins-regular fw-bolder text-decoration-underline">
                 Welcome to the world of CSS Animation
@@ -209,9 +147,59 @@ animation: roll 3s ease-in infinite;
                 </div>
               </div>
 
-              <div class="col-12 secondary-color p-1">
+              <div class="col-12 p-1">
                 <h5 class="source-code-pro">Preview</h5>
-                <div id="preview" class="preview-container p-2"></div>
+                <div id="preview" class="preview-container p-2 bg-dark"></div>
+              </div>
+            </div>
+            <div class="footer container primary-color mt-2">
+              <div class="row p-3">
+                <div
+                  class="col-sm-12 col-lg-4 d-flex justify-content-center align-items-center"
+                >
+                  <p class="source-code-pro fw-bold">@2024 AnimateWithCSS</p>
+                </div>
+                <div
+                  class="col-sm-12 col-lg-4 source-code-pro d-flex flex-column justify-content-center"
+                >
+                  <p class="fw-bold">Want to Contribute?</p>
+                  <p>
+                    Vist our github repository, and follow the documentation for
+                    contrbutions. Click the icon below
+                  </p>
+                  <a href="https://github.com/nirajan128/AnimateWithCss"
+                    ><img
+                      src="../images/github.png"
+                      alt="github"
+                      class="custom-img"
+                  /></a>
+                </div>
+                <div class="col-sm-12 col-lg-4 source-code-pro">
+                  <p class="fw-bold">About</p>
+                  <p>
+                    This website aims to teach css animation from baisc
+                    explaining each properties. Made using HTML, Bootstrap, CSS
+                    and JS the wbesite has a simple stack.
+                    <span class="secondary-color"
+                      >If you want to view the source code or contribute click
+                      this link :
+                      <a
+                        href="https://github.com/nirajan128/AnimateWithCss"
+                        class="accent-text"
+                        >CODE</a
+                      ></span
+                    >
+                  </p>
+                  <p class="fw-bold">
+                    Designed and Developed by:<br />
+                    <a href="https://github.com/nirajan128" class="accent-color"
+                      >@Nirajan Shrestha</a
+                    ><br />
+                    <a href="https://github.com/safali56" class="accent-color"
+                      >@Safali BC Senchuri</a
+                    >
+                  </p>
+                </div>
               </div>
             </div>
           </div>

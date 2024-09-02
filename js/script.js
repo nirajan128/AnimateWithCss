@@ -98,6 +98,8 @@ window.addEventListener('DOMContentLoaded', () => {
         changedContent += `</div>` // closing tag: col
       })
 
+      changedContent += footer()
+
       changedContent += `</div>` // closing tag: row
     }
     changedContent += `</div>` // closing tag: container
@@ -136,6 +138,7 @@ window.addEventListener('DOMContentLoaded', () => {
       })
 
       changedContent += `</div>` // row closing tag
+      changedContent += footer()
     }
     changedContent += `</div>` // container closing tag
 
@@ -177,10 +180,30 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function showLandingPage () {
-    container.style.display = 'none'
-    highlightSelectedAccordion(-1)
-    console.log('clicked')
+  function footer () {
+    return `<div class="container primary-color"> 
+        <div class="row p-3">
+          <div class="col-sm-12 col-lg-4 d-flex justify-content-center align-items-center">
+            <p class ="source-code-pro fw-bold">@2024 AnimateWithCSS</p>
+          </div>
+          <div class="col-sm-12 col-lg-4 source-code-pro d-flex flex-column justify-content-center">
+             <p class="fw-bold"> Want to Contribute? </p>
+             <p>Vist our github repository, and follow the documentation for contrbutions. Click the icon below</p>
+             <a href="https://github.com/nirajan128/AnimateWithCss"><img src='../images/github.png' alt='github' class='custom-img' /></a>
+
+          </div>
+          <div class="col-sm-12 col-lg-4 source-code-pro">
+             <p class="fw-bold">About</p>
+             <p>This website aims to teach css animation from baisc explaining each properties.
+              Made using HTML, Bootstrap, CSS and JS the wbesite has a simple stack. <span class="secondary-color">If you want to view the source code or contribute click this link : <a href="https://github.com/nirajan128/AnimateWithCss" class="accent-text">CODE</a></span></P>
+              <p class="fw-bold ">Designed and Developed by:<br>
+                 <a href="https://github.com/nirajan128" class=" accent-color" >@Nirajan Shrestha</a><br>
+                 <a href="https://github.com/safali56" class="accent-color" >@Safali BC Senchuri</a>
+              </p>
+          </div>
+        </div>
+
+      </div>`
   }
 
   // Attach event listeners to buttons dynamically

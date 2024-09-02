@@ -13,6 +13,7 @@
   --bg-color: #ffffff;
 }
 
+/* Background and text colors */
 .primary-color {
   background-color: var(--primary-color) !important;
 }
@@ -29,13 +30,11 @@
   background-color: var(--bg-color) !important;
 }
 
+/* Fonts */
 .source-code-pro {
   font-family: 'Source Code Pro', monospace;
   font-weight: 400;
   font-style: normal;
-}
-body.bg-dark {
-  background-color: linear-gradient(135deg, #ff7e5f, #feb47b) !important;
 }
 
 .poppins-regular {
@@ -58,6 +57,7 @@ h1 {
   font-size: 24px;
 }
 
+/* Buttons */
 .btn {
   border: 2px solid gold;
   background-color: var(--primary-color) !important;
@@ -68,63 +68,11 @@ h1 {
   background-color: gold !important;
 }
 
-/* font sizes */
-@media (max-width: 992px) {
-  h1 {
-    font-size: 2rem; /* 32px */
-  }
-  h2 {
-    font-size: 1.75rem; /* 28px */
-  }
-  h3 {
-    font-size: 1.5rem; /* 24px */
-  }
-  h4 {
-    font-size: 1.25rem; /* 20px */
-  }
-  h5,
-  p {
-    font-size: 1rem; /* 16px */
-  }
-  h6 {
-    font-size: 0.875rem; /* 14px */
-  }
-}
-
-@media (max-width: 768px) {
-  h1 {
-    font-size: 1.75rem; /* 28px */
-  }
-  h2 {
-    font-size: 1.5rem; /* 24px */
-  }
-  h3,
-  h4 {
-    font-size: 1.25rem; /* 20px */
-  }
-  h5,
-  h6,
-  p {
-    font-size: 1rem; /* 16px */
-  }
-}
-
-@media (max-width: 576px) {
-  h1 {
-    font-size: 1.5rem; /* 24px */
-  }
-  h2 {
-    font-size: 1.25rem; /* 20px */
-  }
-  h3,
-  h4 {
-    font-size: 1.125rem; /* 18px */
-  }
-  h5,
-  h6,
-  p {
-    font-size: 0.875rem; /* 14px */
-  }
+/* Images */
+.custom-img {
+  width: 40px;
+  height: 40px;
+  animation: scaleUpDown 3s ease-in-out infinite;
 }
 
 /* Svg-background styles */
@@ -152,9 +100,11 @@ h1 {
   font-family: Arial, sans-serif;
 }
 
+/* Margins */
 .text-left {
   text-align: left;
 }
+
 /* Animations and keyframes */
 .animated-shape1 {
   animation: scaleShape 4s infinite linear;
@@ -167,6 +117,18 @@ h1 {
 .animated-shape3 {
   animation: scaleShape 8s infinite linear;
   transform-origin: center;
+}
+
+@keyframes scaleUpDown {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2); /* Scale up to 1.5 times its original size */
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 @keyframes scaleShape {
@@ -242,4 +204,134 @@ h1 {
 .accordion-body:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow on hover */
   border-radius: 5px; /* Add slight rounding */
+}
+
+/* Intro to CSS styles */
+/* Custom Hamburger Menu Styles */
+.custom-toggler {
+  border: none;
+  background: none;
+  padding: 0;
+  outline: none;
+  padding: 0.5em;
+}
+
+.custom-toggler .icon-bar {
+  width: 30px;
+  height: 3px;
+  background-color: #04aa6d;
+  margin: 5px 0;
+}
+
+/* Sidebar styles to fit content */
+.nav-height {
+  display: flex;
+  flex-direction: column;
+  height: auto !important; /* Force auto height */
+}
+
+.accordion-collapse {
+  transition: height 0.3s ease;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #fff;
+  background-color: #007bff;
+}
+
+.code-container {
+  width: 100%;
+  max-width: 100%;
+}
+.CodeMirror {
+  height: auto;
+  min-height: 100px;
+  max-height: 400px;
+  width: 100%;
+}
+
+.box {
+  height: 50px;
+  width: 50px;
+  background-color: gold;
+  animation: roll 3s ease-in infinite;
+}
+
+.spacing {
+  word-spacing: 4px;
+}
+
+@keyframes roll {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(200px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+/* Media Queries */
+@media (max-width: 992px) {
+  h1 {
+    font-size: 2rem; /* 32px */
+  }
+  h2 {
+    font-size: 1.75rem; /* 28px */
+  }
+  h3 {
+    font-size: 1.5rem; /* 24px */
+  }
+  h4 {
+    font-size: 1.25rem; /* 20px */
+  }
+  h5,
+  p {
+    font-size: 1rem; /* 16px */
+  }
+  h6 {
+    font-size: 0.875rem; /* 14px */
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.75rem; /* 28px */
+  }
+  h2 {
+    font-size: 1.5rem; /* 24px */
+  }
+  h3,
+  h4 {
+    font-size: 1.25rem; /* 20px */
+  }
+  h5,
+  h6,
+  p {
+    font-size: 1rem; /* 16px */
+  }
+}
+
+@media (max-width: 576px) {
+  h1 {
+    font-size: 1.5rem; /* 24px */
+  }
+  h2 {
+    font-size: 1.25rem; /* 20px */
+  }
+  h3,
+  h4 {
+    font-size: 1.125rem; /* 18px */
+  }
+  h5,
+  h6,
+  p {
+    font-size: 0.875rem; /* 14px */
+  }
+
+  .slogan {
+    font-size: 12px;
+  }
 }
