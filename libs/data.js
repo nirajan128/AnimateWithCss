@@ -40,6 +40,7 @@ const data = [
         content:
           'In CSS, the @keyframes rule is used to define animations. It allows you to specify the stages of an animation with different styles at each stage.<span class="secondary-color"> These stages are marked with percentages or the keywords from and to, where from represents 0% (the start of the animation) and to represents 100% (the end of the animation).</span>'
       },
+
       {
         heading: 'Syntax',
         content: [
@@ -51,6 +52,7 @@ const data = [
               transform: translateY(50px);
             }
           }`,
+
           `@keyframe jump{ 
             0% {
               transform: translateY(0);

@@ -61,6 +61,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   function generateSectionContent (section) {
     let sectionContent = `<h3>${section.heading}</h3>`
+
     if (typeof section.content === 'string') {
       sectionContent += `<p class="merriweather-regular">${section.content}</p>`
     } else if (Array.isArray(section.content)) {
