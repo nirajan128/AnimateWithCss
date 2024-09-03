@@ -49,6 +49,7 @@ window.addEventListener('DOMContentLoaded', () => {
         lessonIndex === 0
           ? introLessonDesign(lessonData)
           : otherLessonDesign(lessonData)
+
         highlightSelectedAccordion(lessonIndex) // Highlight the selected accordion item
       } else {
         console.error('No data found for the selected lesson')
@@ -75,7 +76,7 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   function introLessonDesign (lessonData) {
-    console.log('lesson 1', lessonData)
+    console.log('lesson', lessonData)
     let changedContent = `<div class="container d-flex flex-column justify-content-center mt-3 text-dark p-3 poppins-regular">`
     if (lessonData) {
       changedContent += `<div class="d-flex justify-content-between mb-3"><a href="../index.html" class='btn bg-accent'>Home</a>
